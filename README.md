@@ -22,7 +22,7 @@ To install all necessary dependencies, run the following command:
 $ composer install
 ```
 
-## Run Migrations and Seed Initial Data
+### Run Migrations and Seed Initial Data
 
 To run migrations and seed initial data, execute:
 
@@ -34,7 +34,7 @@ $ php artisan migrate:fresh --seed
 
  follow these steps:
 
-### 1. Set the Alpha Vantage API Key in `.env`
+#### 1. Set the Alpha Vantage API Key in `.env`
 
 Before you can fetch real-time stock prices, you need to set your Alpha Vantage API key in the `.env` file. Open the `.env` file and add the following line, replacing `YOUR_API_KEY` with your actual API key:
 
@@ -42,13 +42,13 @@ Before you can fetch real-time stock prices, you need to set your Alpha Vantage 
 ALPHA_VANTAGE_API_KEY=YOUR_API_KEY
 ```
 
-### 2. First terminal (Scheduler):
+#### 2. First terminal (Scheduler):
 
 ```bash
 $ php artisan schedule:work
 ```
 
-### 3. Second terminal (Queue Worker):
+#### 3. Second terminal (Queue Worker):
 
 ```bash
 $ php artisan queue:work
@@ -56,7 +56,7 @@ $ php artisan queue:work
 
 The system enforces that each stock (stock_id) can only have one price record per exact timestamp. This prevents duplicate entries and ensures data accuracy.
 
-## Postman collection
+### Postman collection
 
 The Postman collection is located in the project directory as stock_price_tracker.postman_collection.json. It contains three endpoints:
 
@@ -66,7 +66,7 @@ The Postman collection is located in the project directory as stock_price_tracke
 
 3. Change Price Reporting – Report changes in stock prices.
 
-### Why Two Distinct Endpoints?
+#### Why Two Distinct Endpoints?
 While it’s technically possible to merge the functionality (1. and 2.) into one endpoint, I maintain two separate endpoints for semantic clarity. This makes it clear when you need data for a specific stock and allows for easier future expansions (e.g., adding stock-specific parameters). Additionally, this approach benefits caching, as stock-specific keys like stock:[ID]:latest will yield faster cache hits.
 
 
