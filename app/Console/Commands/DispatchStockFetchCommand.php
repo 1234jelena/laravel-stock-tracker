@@ -15,7 +15,6 @@ class DispatchStockFetchCommand extends Command
     {
         $stocks = Stock::all();
 
-        // todo handle when fails
         foreach ($stocks as $stock) {
             FetchSingleStockDataJob::dispatch($stock);
         }
