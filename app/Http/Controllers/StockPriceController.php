@@ -7,10 +7,7 @@ use App\Http\Requests\StockPriceRequest;
 use App\Http\Resources\PriceChangeResource;
 use App\Http\Resources\StockPriceResource;
 use App\Models\Stock;
-use App\Models\StockPrice;
 use App\Traits\HasCachedLatestPrice;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 
 class StockPriceController extends Controller
 {
