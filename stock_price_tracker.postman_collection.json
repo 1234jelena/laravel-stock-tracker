@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "a9eaba68-1c2b-4d62-804a-878b8fd7fd6a",
+		"name": "Stock Price Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40985982"
+	},
+	"item": [
+		{
+			"name": "get latest stock price",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{localhost}}api/stock-prices/{stock}/latest",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"stock-prices",
+						"{stock}",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get latest prices for set of stocks or for all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{localhost}}api/stock-prices/latest?stock_ids[]=2&stock_ids[]=1",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"stock-prices",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "stock_ids[]",
+							"value": "2",
+							"description": "pass stock_ids[] - array of stock ids in order to retrive data for set of stocks. If stock_ids[] not send, than latest prices for all stocks are returned"
+						},
+						{
+							"key": "stock_ids[]",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "price change",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "stock_ids[]",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "start_date",
+							"value": "2025-03-31 19:55:00",
+							"type": "text"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-03-31 19:58:00",
+							"type": "text"
+						},
+						{
+							"key": "stock_ids[]",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{localhost}}api/stock-prices/change",
+					"host": [
+						"{{localhost}}api"
+					],
+					"path": [
+						"stock-prices",
+						"change"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
