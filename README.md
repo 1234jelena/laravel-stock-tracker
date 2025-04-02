@@ -22,6 +22,14 @@ To install all necessary dependencies, run the following command:
 $ composer install
 ```
 
+### Environment Setup
+
+Copy the `.env.example` file to create your environment configuration file. Update the `.env` file with your database and other configurations as needed:
+
+```bash
+cp .env.example .env
+```
+
 ### Run Migrations and Seed Initial Data
 
 To run migrations and seed initial data, execute:
@@ -30,9 +38,17 @@ To run migrations and seed initial data, execute:
 $ php artisan migrate:fresh --seed 
 ```
 
+### Run the Laravel Development Server
+
+Run develpment server with:
+
+```bash
+$ php artisan serve
+```
+
 ### Real-Time Stock Price Setup
 
- follow these steps:
+To fetch real-time stock prices follow these steps:
 
 #### 1. Set the Alpha Vantage API Key in `.env`
 
