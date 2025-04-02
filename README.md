@@ -85,8 +85,10 @@ The Postman collection is located in the project directory as stock_price_tracke
 #### Why Two Distinct Endpoints?
 While it’s technically possible to merge the functionality (1. and 2.) into one endpoint, I maintain two separate endpoints for semantic clarity. This makes it clear when you need data for a specific stock and allows for easier future expansions (e.g., adding stock-specific parameters). Additionally, this approach benefits caching, as stock-specific keys like stock:[ID]:latest will yield faster cache hits.
 
+### Testing
 
+Run tests using the following command:
 
-
-
-
+```bash
+$ php artisan test
+```
